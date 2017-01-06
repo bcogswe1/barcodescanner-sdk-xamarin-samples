@@ -111,15 +111,12 @@ namespace XamarinScanditSDKSampleAndroid
 
 		private void grantCameraPermissionsThenStartScanning()
 		{
-			Console.WriteLine("get permission");
 			if (CheckSelfPermission(Manifest.Permission.Camera)
 				!= Permission.Granted)
 			{
-				Console.WriteLine("get permission1");
 
 				if (mDeniedCameraAccess == false)
 				{
-					Console.WriteLine("get permission2");
 
 					// it's pretty clear for why the camera is required. We don't need to give a
 					// detailed reason.
@@ -129,7 +126,6 @@ namespace XamarinScanditSDKSampleAndroid
 
 			}
 			else {
-				Console.WriteLine("get permission3 " + CheckSelfPermission(Manifest.Permission.Camera));
 
 				// we already have the permission
 				picker.StartScanning();
@@ -139,7 +135,6 @@ namespace XamarinScanditSDKSampleAndroid
 		override public void OnRequestPermissionsResult(int requestCode,
 									   string[] permissions, Permission[] grantResults)
 		{
-			Console.WriteLine("got permission");
 			if (requestCode == CameraRequestPermission)
 			{
 				if (grantResults.Length > 0
@@ -165,7 +160,6 @@ namespace XamarinScanditSDKSampleAndroid
 
 		protected override void OnResume () 
 		{
-			Console.WriteLine("resume");
 			mPaused = false;
 			// handle permissions for Marshmallow and onwards...
 			if (Build.VERSION.SdkInt >= BuildVersionCodes.M)
